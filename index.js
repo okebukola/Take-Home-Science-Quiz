@@ -31,27 +31,23 @@ const submissions = [
 // Prompt 1 : countCorrectQuestions
 function countCorrectQuestions(arr){
   let count = 0;
-  arr.forEach(({isCorrect})=>{
-    isCorrect=== true?count++:null;
-    return count
-  })
+  arr.forEach(({isCorrect})=>isCorrect=== true?count++:null)
+  return count
 }
 // Prompt 2 : filterQuestionsByType
 function filterQuestionsByType(arr,bool){
-  list = []
-  arr.forEach(({isEssayQuestion})=>{
-    if isEssayQuestion === bool list.push(isEssayQuestion;
-    if(count>0) return true
-  })
+  return  arr.filter(({isEssayQuestion})=> isEssayQuestion === bool)
 }
 // Prompt 3 : checkForPlagiarism
 function checkForPlagiarism(arr=submissions,text){
-  let count = 0
-  arr.forEach(({response})=>{
-    response.includes(text) === true?count++:null;
-    if(count>0) return true
-  })
+  for (let i =0;i<arr.length;i++){
+  if (arr[i].response.includes(text)){
+    return true
+  }
 }
+return false
+}
+
 
 //This is to run the tests. You can ignore it but don't delete it! 
 require('./index.test.js'); (void 0);
